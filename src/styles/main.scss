@@ -1,0 +1,109 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "animations";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Custom base styles
+@layer base {
+  html,
+  body {
+    @apply bg-primary text-light;
+    scroll-behavior: smooth;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  a {
+    @apply text-accent transition-colors duration-300;
+
+    &:hover {
+      @apply text-purple-400;
+    }
+  }
+}
+
+// Custom components
+@layer components {
+  .container-narrow {
+    @apply container max-w-5xl mx-auto px-4 md:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent hover:bg-purple-500 text-white;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-accent text-accent hover:bg-accent hover:text-white;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold mb-8;
+  }
+
+  .card {
+    @apply bg-secondary rounded-xl p-6 transition-all duration-300;
+
+    &:hover {
+      @apply shadow-lg shadow-accent/10;
+    }
+  }
+
+  .nav-link {
+    @apply relative text-light hover:text-accent transition-colors duration-300;
+
+    &.active {
+      @apply text-accent;
+
+      &::after {
+        @apply opacity-100;
+      }
+    }
+
+    &::after {
+      content: "";
+      @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent opacity-0 transition-opacity duration-300;
+    }
+
+    &:hover::after {
+      @apply opacity-100;
+    }
+  }
+
+  .typing-cursor {
+    @apply inline-block w-2 h-5 bg-accent ml-1;
+    animation: cursorBlink 1s step-end infinite;
+  }
+}
+
+// Custom utilities
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-accent;
+  }
+
+  .grid-auto-fill-250 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
