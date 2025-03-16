@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import ScrollToHashElement from "./components/common/ScrollToHashElement";
+import { twMerge } from "tailwind-merge";
 // import About from './pages/About';
 // import Projects from './pages/Projects';
 // import Contact from './pages/Contact';
 // import NotFound from './pages/NotFound';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   useEffect(() => {
     // Smooth scrolling for anchor links
     const handleAnchorClick = (e) => {
@@ -34,19 +37,24 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow">
-        <ScrollToHashElement />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} />
+    <div className={darkMode && "dark"}>
+      <div className="min-h-screen flex flex-col dark:bg-primary dark:text-light text-green bg-slate-50 transition-colors duration-300">
+        <Header />
+        <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
+          DRK MODE
+        </button>
+        <main className="flex-grow ">
+          <ScrollToHashElement />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-      </main>
-      <Footer />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

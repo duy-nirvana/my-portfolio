@@ -7,6 +7,7 @@ export default {
         primary: "#171717",
         secondary: "#262626",
         accent: "#7c3aed",
+        green: "#6A9C89",
         light: "#f5f5f5",
       },
       fontFamily: {
@@ -28,4 +29,5 @@ export default {
     },
   },
   plugins: [],
+  darkMode: "class",
 };
