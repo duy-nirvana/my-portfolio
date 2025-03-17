@@ -6,6 +6,7 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
+import { IoSunnyOutline } from "react-icons/io5";
 
 const navLinks = [
   { name: "Home", path: "#home" },
@@ -14,7 +15,7 @@ const navLinks = [
   { name: "Contact", path: "#contact" },
 ];
 
-const Header = () => {
+const Header = ({ darkMode, onChangeDarkMode }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -94,6 +95,15 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
+            <li>
+              <button onClick={onChangeDarkMode}>
+                {darkMode ? (
+                  <IoSunnyOutline className="text-white w-5 h-5" />
+                ) : (
+                  "LHT"
+                )}
+              </button>
+            </li>
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a

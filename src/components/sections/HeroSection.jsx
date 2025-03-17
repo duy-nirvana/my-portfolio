@@ -1,11 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import Button from "../common/Button";
 import TypingText from "../common/TypingText";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
-
   const typingStrings = ["Frontend Developer", "Problem Solver", "PHILOCALIST"];
 
   return (
@@ -13,7 +10,7 @@ const HeroSection = () => {
       <div className="container-narrow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-slide-in-left">
-            <span className="inline-block text-green dark:text-accent font-mono mb-4">
+            <span className="inline-block dark:text-accent font-mono mb-4">
               Hello, I'm
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-secondary dark:text-white">
@@ -32,7 +29,7 @@ const HeroSection = () => {
               experiences with a focus on user-centered design and clean code.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button to="/projects" variant="primary">
+              <Button to="/projects" variant="primary" className="dark:text-white">
                 View My Work
               </Button>
               <Button to="/contact" variant="outline">
@@ -126,7 +123,11 @@ const HeroSection = () => {
           <a
             href="#about"
             className="text-light/60 hover:text-accent transition-colors flex flex-col items-center"
-            onClick={() => navigate("#about")}
+            onClick={() =>
+              document
+                .getElementById("about")
+                .scrollIntoView({ behavior: "smooth" })
+            }
           >
             <span className="text-sm mb-2">Scroll Down</span>
             <svg

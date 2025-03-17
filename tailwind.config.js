@@ -6,13 +6,14 @@ export default {
       colors: {
         primary: "#171717",
         secondary: "#262626",
-        accent: "#7c3aed",
+        accent: "#dc2f02",
         green: "#6A9C89",
         light: "#f5f5f5",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: ["Lexend", "sans-serif"],
+        // mono: ["Source Code Pro", "monospace"],
+        mono: ["Lexend", "monospace"],
       },
       screens: {
         xs: "480px",

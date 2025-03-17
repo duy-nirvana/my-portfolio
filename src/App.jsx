@@ -36,13 +36,17 @@ function App() {
     return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
 
+  const handleChangeDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
   return (
     <div className={darkMode && "dark"}>
-      <div className="min-h-screen flex flex-col dark:bg-primary dark:text-light text-green bg-slate-50 transition-colors duration-300">
-        <Header />
-        <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
+      <div className="min-h-screen flex flex-col dark:bg-primary dark:text-light text-black bg-slate-50 transition-colors duration-00">
+        <Header darkMode={darkMode} onChangeDarkMode={handleChangeDarkMode} />
+        {/* <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
           DRK MODE
-        </button>
+        </button> */}
         <main className="flex-grow ">
           <ScrollToHashElement />
           <Routes>

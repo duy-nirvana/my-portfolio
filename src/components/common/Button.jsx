@@ -16,7 +16,7 @@ const Button = ({
     "inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300";
 
   const variantClasses = {
-    primary: "bg-accent hover:bg-purple-500 text-white",
+    primary: "bg-accent hover:bg-accent/90 text-white hover:text-white",
     secondary: "bg-secondary hover:bg-secondary/80 text-light",
     outline:
       "border-2 border-accent text-accent hover:bg-accent hover:text-white",
