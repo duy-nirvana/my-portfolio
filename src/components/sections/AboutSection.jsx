@@ -36,7 +36,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-16 md:py-24">
+    <section id="about" className="py-16 md:py-18">
       <div className="container-narrow">
         <SectionHeading
           title="About Me"
@@ -87,7 +87,7 @@ const AboutSection = () => {
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div>
                 <h4 className="font-mono text-accent mb-2">Name</h4>
-                <p>Joshua Wootonn</p>
+                <p>Duy Tran</p>
               </div>
               <div>
                 <h4 className="font-mono text-accent mb-2">Email</h4>

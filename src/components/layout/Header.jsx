@@ -6,7 +6,8 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-import { IoSunnyOutline } from "react-icons/io5";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import { twMerge } from "tailwind-merge";
 
 const navLinks = [
   { name: "Home", path: "#home" },
@@ -79,7 +80,7 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-primary/90 backdrop-blur-sm py-4 shadow-lg"
+          ? "bg-white/50 dark:bg-primary/90 backdrop-blur-sm py-4 shadow-lg text-white"
           : "bg-transparent py-6"
       }`}
     >
@@ -95,23 +96,16 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
-            <li>
-              <button onClick={onChangeDarkMode}>
-                {darkMode ? (
-                  <IoSunnyOutline className="text-white w-5 h-5" />
-                ) : (
-                  "LHT"
-                )}
-              </button>
-            </li>
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.path}
                   onClick={() => handleNavigateSection(link.path)}
-                  className={
-                    activeSection === link.path ? "nav-link active" : "nav-link"
-                  }
+                  className={twMerge(
+                    activeSection === link.path
+                      ? "nav-link active"
+                      : "nav-link text-black"
+                  )}
                 >
                   {link.name}
                 </a>
@@ -125,6 +119,17 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
                 </NavLink> */}
               </li>
             ))}
+            <li className="flex items-center">
+              <button onClick={onChangeDarkMode}>
+                {darkMode ? (
+                  <IoSunnyOutline className="text-white w-5 h-5" />
+                ) : (
+                  <IoMoonOutline
+                    className={twMerge("text-black dark:text-accent w-5 h-5")}
+                  />
+                )}
+              </button>
+            </li>
           </ul>
         </nav>
 
