@@ -97,7 +97,7 @@ const ContactSection = () => {
                     className={twMerge(
                       "flex items-center gap-4 bg-black/20 py-2 px-4 lg:px-6 rounded-md relative",
                       item.isCopy &&
-                        "cursor-pointer after:absolute after:w-fit after:h-fit after:bg-red-500 after:right-0 after:top-0 after:-translate-y-1/2 after:content-['Copied!'] after:text-xs after:p-1 after:rounded-md"
+                        "cursor-pointer after:absolute after:w-fit after:h-fit after:bg-accent after:right-0 after:top-0 after:-translate-y-1/2 after:content-['Copied!'] after:text-xs after:p-1 after:rounded-md"
                     )}
                     key={index}
                   >
