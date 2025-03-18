@@ -89,13 +89,12 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
           href="#home"
           className="text-2xl font-bold hover:text-accent transition-colors"
         >
-          <span className="font-mono">J</span>
-          <span className="sr-only">Joshua</span>
+          <span className="font-mono">DuyTK</span>
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
-          <ul className="flex space-x-8">
+          <ul className="flex space-x-8 items-center">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
@@ -120,13 +119,14 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
               </li>
             ))}
             <li className="flex items-center">
-              <button onClick={onChangeDarkMode}>
+              <button
+                onClick={onChangeDarkMode}
+                className="bg-primary dark:bg-accent p-1.5 rounded-md"
+              >
                 {darkMode ? (
                   <IoSunnyOutline className="text-white w-5 h-5" />
                 ) : (
-                  <IoMoonOutline
-                    className={twMerge("text-black dark:text-accent w-5 h-5")}
-                  />
+                  <IoMoonOutline className={twMerge("text-white w-5 h-5")} />
                 )}
               </button>
             </li>

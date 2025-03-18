@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -10,8 +10,10 @@ import { twMerge } from "tailwind-merge";
 // import Contact from './pages/Contact';
 // import NotFound from './pages/NotFound';
 
+export const ThemeContext = createContext();
+
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     // Smooth scrolling for anchor links
@@ -37,29 +39,31 @@ function App() {
   }, []);
 
   const handleChangeDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
+    setDarkMode(!darkMode);
+  };
 
   return (
-    <div className={darkMode && "dark"}>
-      <div className="min-h-screen flex flex-col dark:bg-primary dark:text-light text-black bg-slate-50 transition-colors duration-00">
-        <Header darkMode={darkMode} onChangeDarkMode={handleChangeDarkMode} />
-        {/* <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
+    <ThemeContext.Provider value={{ darkMode }}>
+      <div className={darkMode && "dark"}>
+        <div className="min-h-screen flex flex-col dark:bg-primary dark:text-light text-black bg-slate-50 transition-colors duration-00">
+          <Header darkMode={darkMode} onChangeDarkMode={handleChangeDarkMode} />
+          {/* <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
           DRK MODE
         </button> */}
-        <main className="flex-grow ">
-          <ScrollToHashElement />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/about" element={<About />} />
+          <main className="flex-grow ">
+            <ScrollToHashElement />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} /> */}
-          </Routes>
-        </main>
-        <Footer />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ThemeContext.Provider>
   );
 }
 

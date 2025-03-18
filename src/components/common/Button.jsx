@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Button = ({
   children,
@@ -12,14 +12,17 @@ const Button = ({
   disabled = false,
   ...props
 }) => {
+  const navigate = useNavigate();
+
   const baseClasses =
     "inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300";
 
   const variantClasses = {
-    primary: "bg-accent hover:bg-accent/90 text-white hover:text-white",
+    primary:
+      "bg-accent hover:bg-accent/90 text-accent dark:text-white text-white hover:text-white",
     secondary: "bg-secondary hover:bg-secondary/80 text-light",
     outline:
-      "border-2 border-accent text-accent hover:bg-accent hover:text-white",
+      "border-2 border-accent dark:text-accent text-blue-500 hover:bg-accent dark:hover:text-white hover:text-white",
     ghost: "text-accent hover:bg-accent/10",
   };
 
@@ -42,6 +45,7 @@ const Button = ({
         className={classes}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => navigate(href)}
         {...props}
       >
         {children}

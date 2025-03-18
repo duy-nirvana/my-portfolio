@@ -13,7 +13,7 @@ export default {
       fontFamily: {
         sans: ["Lexend", "sans-serif"],
         // mono: ["Source Code Pro", "monospace"],
-        mono: ["Lexend", "monospace"],
+        mono: ["Source Code Pro", "monospace"],
       },
       screens: {
         xs: "480px",

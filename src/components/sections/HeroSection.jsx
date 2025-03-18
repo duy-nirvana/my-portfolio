@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../common/Button";
 import TypingText from "../common/TypingText";
+import { FaCircleArrowDown } from "react-icons/fa6";
 
 const HeroSection = () => {
   const typingStrings = ["Frontend Developer", "Problem Solver", "PHILOCALIST"];
@@ -29,10 +30,10 @@ const HeroSection = () => {
               experiences with a focus on user-centered design and clean code.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button to="/projects" variant="primary" className="dark:text-white">
-                View My Work
+              <Button href="#projects" variant="primary">
+                My Resume
               </Button>
-              <Button to="/contact" variant="outline">
+              <Button href="#contact" variant="outline">
                 Get In Touch
               </Button>
             </div>
@@ -119,29 +120,18 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-12 lg:mt-24 animate-fade-in">
+        <div className="flex justify-center mt-12 lg:mt-40 ">
           <a
-            href="#about"
-            className="text-light/60 hover:text-accent transition-colors flex flex-col items-center"
+            href="#skill"
+            className="dark:text-light text-primary dark:hover:text-accent transition-colors flex flex-col items-center"
             onClick={() =>
               document
-                .getElementById("about")
+                .getElementById("skill")
                 .scrollIntoView({ behavior: "smooth" })
             }
           >
-            <span className="text-sm mb-2">Scroll Down</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 animate-bounce"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <span className="text-sm mb-2 ">Scroll Down</span>
+            <FaCircleArrowDown className="w-5 h-5 min-w-5 animate-bounce anima" />
           </a>
         </div>
       </div>
