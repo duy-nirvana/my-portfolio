@@ -1,9 +1,8 @@
-
 @use "variables" as *;
 @use "mixins" as *;
 @use "animations";
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -75,7 +74,7 @@
   }
 
   .nav-link {
-    @apply relative text-light hover:text-accent transition-colors duration-300;
+    @apply relative text-light hover:text-accent transition-colors duration-300 no-underline;
 
     &.active {
       @apply text-accent;
@@ -111,5 +110,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
+  }
+
+  .copied {
+    @apply after:absolute after:w-fit after:h-fit after:bg-accent after:right-0 after:top-0 after:-translate-y-1/2 after:content-['Copied!'] after:text-xs after:p-1 after:rounded-md;
   }
 }

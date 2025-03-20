@@ -43,6 +43,7 @@ function SkillSection(props) {
     { name: "TailwindCSS", path: "tailwind-icon.svg" },
     { name: "Material UI", path: "material-ui-icon.svg" },
     { name: "Ant Design", path: "ant-design-icon.svg" },
+    { name: "SocketIO", path: "socket-icon.svg" },
     { name: "NodeJS", path: "nodejs-icon.svg" },
     {
       name: "Express",
