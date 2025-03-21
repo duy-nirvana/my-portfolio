@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const Footer = () => {
   const socialLinks = [
-    { name: "Facebook", url: "https://fb.com/tkh.duy", icon: FaFacebook },
-    { name: "LinkedIn", url: "https://linkedin.com/", icon: "linkedin" },
-    { name: "Twitter", url: "https://twitter.com/", icon: "twitter" },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/tkhduy/",
+      icon: FaLinkedin,
+    },
+    { name: "Facebook", url: "https://fb.com/tkh.duy/", icon: FaFacebook },
   ];
 
   const handleScrollIntoView = (id) => {
@@ -87,10 +92,11 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-light/80 hover:text-accent transition-colors flex items-center"
+                      className="text-light/80 hover:text-accent group transition-colors flex items-center gap-2"
                     >
-                      <Icon className="w-5 h-5 mr-2" />
+                      <Icon className="w-5 h-5" />
                       {link.name}
+                      <HiOutlineExternalLink className="w-5 h-5 text-white/40 group-hover:text-white/70 transition-colors" />
                     </a>
                   </li>
                 );

@@ -25,7 +25,7 @@ const ContactSection = () => {
     {
       icon: HiOutlineLocationMarker,
       title: "Location",
-      value: "New York, USA",
+      value: "District 8, HCM City",
       isCopy: false,
     },
   ];

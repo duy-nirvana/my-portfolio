@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../common/Button";
 import TypingText from "../common/TypingText";
 import { FaCircleArrowDown } from "react-icons/fa6";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const HeroSection = () => {
   const typingStrings = ["Frontend Developer", "Problem Solver", "PHILOCALIST"];
@@ -30,8 +31,15 @@ const HeroSection = () => {
               experiences with a focus on user-centered design and clean code.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button href="#projects" variant="primary">
-                My Resume
+              <Button
+                to="/public/resume.pdf"
+                variant="primary"
+                target="_blank"
+              >
+                <div className="flex gap-2 items-center">
+                  <p>My Resume</p>
+                  <HiOutlineExternalLink className="w-5 h-5" />
+                </div>
               </Button>
               <Button href="#contact" variant="outline">
                 Get In Touch

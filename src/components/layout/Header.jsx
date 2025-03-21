@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import { twMerge } from "tailwind-merge";
+import { HiOutlineMenu } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
 
 const navLinks = [
   { name: "Home", path: "#home" },
@@ -78,10 +80,11 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      ${
         isScrolled
-          ? "bg-white/50 dark:bg-primary/90 backdrop-blur-sm py-4 shadow-lg text-white"
-          : "bg-transparent py-6"
+          ? "bg-white/50 dark:bg-primary/90 md:backdrop-blur-sm py-3 md:py-4 md:shadow-lg md:text-white"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container-narrow flex items-center justify-between">
@@ -121,12 +124,12 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
             <li className="flex items-center">
               <button
                 onClick={onChangeDarkMode}
-                className="bg-primary dark:bg-accent p-1.5 rounded-md"
+                // className="bg-primary dark:bg-accent p-1.5 rounded-md"
               >
                 {darkMode ? (
-                  <IoSunnyOutline className="text-white w-5 h-5" />
+                  <IoSunnyOutline className="dark:text-white text-primary w-5 h-5" />
                 ) : (
-                  <IoMoonOutline className={twMerge("text-white w-5 h-5")} />
+                  <IoMoonOutline className="dark:text-white text-primary w-5 h-5" />
                 )}
               </button>
             </li>
@@ -134,33 +137,34 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden z-50 text-light focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <div className="relative w-6 h-5">
-            <span
-              className={`absolute h-0.5 w-6 bg-light transform transition-all duration-300 ${
-                isOpen ? "rotate-45 top-2" : "top-0"
-              }`}
-            ></span>
-            <span
-              className={`absolute h-0.5 w-6 bg-light top-2 transition-all duration-300 ${
-                isOpen ? "opacity-0" : "opacity-100"
-              }`}
-            ></span>
-            <span
-              className={`absolute h-0.5 w-6 bg-light transform transition-all duration-300 ${
-                isOpen ? "-rotate-45 top-2" : "top-4"
-              }`}
-            ></span>
-          </div>
-        </button>
+
+        <div className="md:hidden z-50 flex items-center gap-3">
+          <button
+            onClick={onChangeDarkMode}
+            className={"p-2 bg-accent dark:bg-slate-500 text-white rounded-md"}
+          >
+            {darkMode ? (
+              <IoSunnyOutline className="text-white w-5 h-5" />
+            ) : (
+              <IoMoonOutline className="text-white w-5 h-5" />
+            )}
+          </button>
+          <button
+            className="md:hidden z-50 text-light focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <IoClose className="dark:text-white text-primary w-8 h-8" />
+            ) : (
+              <HiOutlineMenu className="dark:text-white text-primary w-8 h-8" />
+            )}
+          </button>
+        </div>
 
         {/* Mobile Navigation */}
         <div
-          className={`fixed inset-0 bg-primary flex flex-col items-center justify-center transition-all duration-300 ${
+          className={`fixed inset-0 bg-light dark:bg-primary flex flex-col items-center justify-center transition-all duration-300 ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           } md:hidden`}
         >
@@ -170,7 +174,10 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
                 <li key={link.name}>
                   <NavLink
                     to={link.path}
-                    onClick={closeMenu}
+                    onClick={() => {
+                      handleNavigateSection(link.path);
+                      closeMenu();
+                    }}
                     className={({ isActive }) =>
                       `text-2xl ${
                         isActive

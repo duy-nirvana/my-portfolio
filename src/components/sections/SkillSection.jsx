@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import SectionHeading from "../common/SectionHeading";
 import { ThemeContext } from "../../App";
+import { getTechnologies } from "../../utils";
 
 function SkillSection(props) {
   const { darkMode } = useContext(ThemeContext);
@@ -29,42 +30,23 @@ function SkillSection(props) {
     },
   ];
 
-  const languageSkills = [
-    { name: "HTML5", path: "html-icon.svg" },
-    { name: "CSS3", path: "css-icon.svg" },
-    { name: "Javascript", path: "javascript-icon.svg" },
-    { name: "React", path: "react-icon.svg" },
-    { name: "React Native", path: "react-icon.svg" },
-    {
-      name: "Next",
-      path: darkMode ? "nextjs-light-icon.svg" : "nextjs-dark-icon.svg",
-    },
-    { name: "SCSS", path: "scss-icon.svg" },
-    { name: "TailwindCSS", path: "tailwind-icon.svg" },
-    { name: "Material UI", path: "material-ui-icon.svg" },
-    { name: "Ant Design", path: "ant-design-icon.svg" },
-    { name: "SocketIO", path: "socket-icon.svg" },
-    { name: "NodeJS", path: "nodejs-icon.svg" },
-    {
-      name: "Express",
-      path: darkMode ? "express-light-icon.svg" : "express-dark-icon.svg",
-    },
-    { name: "MongoDB", path: "mongodb-icon.svg" },
-    { name: "Git", path: "git-icon.svg" },
-  ];
+  const languageSkills = getTechnologies(darkMode);
 
   return (
     <section id="skill" className="py-16 md:py-18">
       <div className="container-narrow">
         <SectionHeading
           title="My skills"
-          subtitle="Skills that I have used and am using now"
+          subtitle="Technologies that I have used and am using now"
           align="center"
         />
 
         <div className="flex  flex-wrap gap-2 justify-center">
           {languageSkills.map((skill) => (
-            <div className="flex items-center gap-1 bg-black/30 p-2 rounded-md">
+            <div
+              className="flex items-center gap-1 bg-black/30 p-2 rounded-md"
+              key={skill.id}
+            >
               <img src={`/icons/${skill.path}`} className="w-6 h-6 min-w-6" />
               <p>{skill.name}</p>
             </div>

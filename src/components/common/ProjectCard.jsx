@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, technologies }) => {
   const { id, title, description, tags, image, link } = project;
+
+  console.log({ tags });
+  console.log({ technologies });
 
   return (
     <article className="group bg-secondary rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
@@ -18,14 +21,20 @@ const ProjectCard = ({ project }) => {
 
         <div className="p-6">
           <div className="flex flex-wrap gap-2 mb-3">
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="text-xs font-mono py-1 px-2 rounded bg-accent/10 text-accent"
-              >
-                {tag}
-              </span>
-            ))}
+            {technologies
+              .filter((tech) => tags.includes(tech.id))
+              .map((tech) => (
+                <div
+                  className="flex items-center gap-1 bg-black/30 p-1 rounded-md"
+                  key={tech.id}
+                >
+                  <img
+                    src={`/icons/${tech.path}`}
+                    className="w-3 h-3 min-w-3"
+                  />
+                  <p className="text-xs">{tech.name}</p>
+                </div>
+              ))}
           </div>
 
           <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
