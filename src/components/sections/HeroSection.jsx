@@ -31,11 +31,7 @@ const HeroSection = () => {
               experiences with a focus on user-centered design and clean code.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button
-                to="/public/resume.pdf"
-                variant="primary"
-                target="_blank"
-              >
+              <Button to="/public/resume.pdf" variant="primary" target="_blank">
                 <div className="flex gap-2 items-center">
                   <p>My Resume</p>
                   <HiOutlineExternalLink className="w-5 h-5" />
@@ -47,8 +43,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative animate-slide-in-right hidden lg:block">
-            <div className="relative z-10">
+          <div className="relative animate-slide-in-right hidden lg:block w-96 h-96">
+            {/* <div className="relative z-10">3
               <div className="bg-secondary rounded-xl p-8 h-96 w-full max-w-lg ml-auto relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <div className="grid grid-cols-10 grid-rows-10 h-full w-full">
@@ -122,7 +118,8 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <img src="/avatar.png" className="rounded-xl h-full w-full" />
 
             <div className="absolute w-full h-full inset-0 translate-x-6 translate-y-6 bg-accent/20 rounded-xl -z-10"></div>
           </div>
