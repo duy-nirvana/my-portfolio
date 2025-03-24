@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
 const Footer = () => {
@@ -10,6 +10,11 @@ const Footer = () => {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/tkhduy/",
       icon: FaLinkedin,
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/duy-nirvana",
+      icon: FaGithub,
     },
     { name: "Facebook", url: "https://fb.com/tkh.duy/", icon: FaFacebook },
   ];

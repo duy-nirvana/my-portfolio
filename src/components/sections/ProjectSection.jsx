@@ -12,12 +12,32 @@ const ProjectsSection = () => {
 
   const featuredProjects = [
     {
-      id: "ecommerce-platform",
-      title: "E-Commerce Platform",
+      id: "quiz-it",
+      title: "QUIZ IT",
+      team_size: 1,
+      date: "2024",
       description:
-        "A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.",
-      tags: ["react", "node", "mongodb"],
-      image: "/api/placeholder/600/400",
+        "Quiz It is a game-based learning platform that lets users create, share, play quizzes, making education and fun.",
+      tags: [
+        "socket-io",
+        "react",
+        "react-hook-form",
+        "redux",
+        "node",
+        "express",
+        "mongodb",
+      ],
+      image: [
+        "quiz-it-thumbnail.png",
+        "quiz-it-1.png",
+        "quiz-it-2.png",
+        "quiz-it-3.png",
+        "quiz-it-4.png",
+        "quiz-it-5.png",
+        "quiz-it-6.png",
+      ],
+      source_url: "#",
+      live_url: "#",
     },
     // {
     //   id: "task-management",

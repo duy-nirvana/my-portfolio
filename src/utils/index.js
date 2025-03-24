@@ -10,6 +10,16 @@ export const getTechnologies = (darkMode = false) => {
       name: "Next",
       path: darkMode ? "nextjs-light-icon.svg" : "nextjs-dark-icon.svg",
     },
+    {
+      id: "react-hook-form",
+      name: "React Hook Form",
+      path: "react-hook-form-icon.svg",
+    },
+    {
+      id: "redux",
+      name: "Redux Toolkit",
+      path: "redux-icon.svg",
+    },
     { id: "scss", name: "SCSS", path: "scss-icon.svg" },
     { id: "tailwind", name: "TailwindCSS", path: "tailwind-icon.svg" },
     { id: "material-ui", name: "Material UI", path: "material-ui-icon.svg" },

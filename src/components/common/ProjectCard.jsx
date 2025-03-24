@@ -1,65 +1,114 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { HiOutlineExternalLink } from "react-icons/hi";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/navigation";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 const ProjectCard = ({ project, technologies }) => {
-  const { id, title, description, tags, image, link } = project;
-
-  console.log({ tags });
-  console.log({ technologies });
+  const {
+    id,
+    title,
+    description,
+    tags,
+    image,
+    team_size,
+    date,
+    source_url,
+    live_url,
+  } = project;
 
   return (
-    <article className="group bg-secondary rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
-      <Link to={`/projects/${id}`} className="block">
-        <div className="relative h-56 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-          />
+    <article className="group bg-secondary rounded-xl overflow-hidden transition-all duration-300 ">
+      <div className="block ">
+        <div className="relative h-56 md:h-fit overflow-hidden">
+          {image.length ? (
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={4}
+              grabCursor={true}
+              slidesPerView={1}
+              navigation={{
+                nextEl: ".custom-button-next",
+                prevEl: ".custom-button-prev",
+              }}
+              loop
+            >
+              {image.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={`/projects/${img}`}
+                    alt={index}
+                    className="w-full h-56 lg:h-full object-cover"
+                  />
+                </SwiperSlide>
+              ))}
+              <div className="absolute z-10 top-1/2 left-2 -translate-y-1/2">
+                <button className="custom-button-prev text-white p-1 bg-light/20 rounded-md">
+                  <FaAngleLeft />
+                </button>
+              </div>
+              <div className="absolute z-10 top-1/2 right-2 -translate-y-1/2">
+                <button className="custom-button-next text-white p-1 bg-light/20 rounded-md">
+                  <FaAngleRight />
+                </button>
+              </div>
+            </Swiper>
+          ) : (
+            <img
+              src={`/projects/${image}`}
+              alt={title}
+              className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60"></div>
         </div>
 
-        <div className="p-6">
-          <div className="flex flex-wrap gap-2 mb-3">
-            {technologies
-              .filter((tech) => tags.includes(tech.id))
+        <div className="p-4">
+          <Swiper spaceBetween={4} slidesPerView={"auto"} grabCursor={true}>
+            {tags
+              .map((tag) => technologies.find((tech) => tech.id === tag))
               .map((tech) => (
-                <div
-                  className="flex items-center gap-1 bg-black/30 p-1 rounded-md"
+                <SwiperSlide
+                  className="flex items-center gap-1 bg-black/30 p-1 rounded-md flex-shrink-0 !w-fit px-1.5"
                   key={tech.id}
                 >
-                  <img
-                    src={`/icons/${tech.path}`}
-                    className="w-3 h-3 min-w-3"
-                  />
-                  <p className="text-xs">{tech.name}</p>
-                </div>
+                  <div className="max-w-fit flex items-center gap-1">
+                    <img
+                      src={`/icons/${tech.path}`}
+                      className="w-3 h-3 min-w-3"
+                    />
+                    <p className="text-xs text-light">{tech.name}</p>
+                  </div>
+                </SwiperSlide>
               ))}
-          </div>
+          </Swiper>
 
-          <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
+          <h3 className="text-xl font-bold my-2 text-light transition-colors">
             {title}
           </h3>
+          <p className="text-light/80 text-sm mb-1">{description}</p>
+          <div className="my-2 w-full bg-light/20 h-[0.5px]"></div>
 
-          <p className="text-light/80 mb-4">{description}</p>
+          <div className="relative flex justify-between items-center mb-2">
+            <p className="text-light text-sm">Team size: {team_size}</p>
+            <p className="text-light text-sm">{date}</p>
+          </div>
 
-          <div className="flex items-center font-medium text-accent">
-            View Project
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+          <div className="flex justify-end gap-3">
+            <Link to={source_url} target="_blank">
+              <FaGithub className="w-5 h-5" />
+            </Link>
+            <Link to={live_url} target="_blank">
+              <HiOutlineExternalLink className="w-5 h-5" />
+            </Link>
           </div>
         </div>
-      </Link>
+      </div>
     </article>
   );
 };
