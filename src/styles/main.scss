@@ -7,6 +7,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.dark {
+  --accent: 220, 47, 2;
+}
+
+.light {
+  --accent: 72, 245, 66;
+}
+
 // Custom base styles
 @layer base {
   // * {

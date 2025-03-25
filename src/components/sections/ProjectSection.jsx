@@ -39,22 +39,7 @@ const ProjectsSection = () => {
       source_url: "#",
       live_url: "#",
     },
-    // {
-    //   id: "task-management",
-    //   title: "Task Management App",
-    //   description:
-    //     "A collaborative task management application with real-time updates, kanban board, and team assignments.",
-    //   tags: ["Vue.js", "Firebase", "Tailwind CSS"],
-    //   image: "/api/placeholder/600/400",
-    // },
-    // {
-    //   id: "financial-dashboard",
-    //   title: "Financial Dashboard",
-    //   description:
-    //     "Interactive financial dashboard with data visualization, expense tracking, and budget management features.",
-    //   tags: ["React", "TypeScript", "D3.js", "Express"],
-    //   image: "/api/placeholder/600/400",
-    // },
+    
   ];
 
   return (
@@ -76,11 +61,11 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <Button to="/projects" variant="primary">
             View All Projects
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
