@@ -8,8 +8,6 @@ export default {
         secondary: "rgba(var(--secondary))",
         accent: "rgba(var(--accent))",
         green: "#6A9C89",
-        light: "rgba(var(--light))",
-        dark: "rgba(var(--dark))",
       },
       fontFamily: {
         sans: ["Lexend", "sans-serif"],

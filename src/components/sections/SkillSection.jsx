@@ -44,7 +44,7 @@ function SkillSection(props) {
         <div className="flex  flex-wrap gap-2 justify-center">
           {languageSkills.map((skill) => (
             <div
-              className="flex items-center gap-1 bg-black/30 p-2 rounded-md"
+              className="flex items-center gap-1 bg-secondary/20 text-secondary p-2 rounded-md"
               key={skill.id}
             >
               <img src={`/icons/${skill.path}`} className="w-6 h-6 min-w-6" />

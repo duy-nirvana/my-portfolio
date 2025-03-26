@@ -60,7 +60,7 @@ const TypingText = ({
 
   return (
     <div className={`inline-flex items-center ${className}`}>
-      <span className="text-secondary transition-colors">{displayText}</span>
+      <span className="text-secondary/80 transition-colors">{displayText}</span>
       <span className="typing-cursor"></span>
     </div>
   );

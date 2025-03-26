@@ -26,7 +26,7 @@ const HeroSection = () => {
                 delayAfterType={2000}
               />
             </div>
-            <p className="text-secondary text-lg max-w-lg mb-8">
+            <p className="text-secondary/80 text-lg max-w-lg mb-8">
               I craft pixel-perfect, accessible, and performant digital
               experiences with a focus on user-centered design and clean code.
             </p>
@@ -135,8 +135,8 @@ const HeroSection = () => {
                 .scrollIntoView({ behavior: "smooth" })
             }
           >
-            <span className="text-sm mb-2 ">Scroll Down</span>
-            <FaCircleArrowDown className="w-5 h-5 min-w-5 animate-bounce anima" />
+            <span className="text-sm mb-2 text-secondary">Scroll Down</span>
+            <FaCircleArrowDown className="w-5 h-5 min-w-5 animate-bounce text-secondary" />
           </a>
         </div>
       </div>

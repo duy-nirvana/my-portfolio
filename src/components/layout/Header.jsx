@@ -83,14 +83,14 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
       ${
         isScrolled
-          ? "bg-dark/90 md:backdrop-blur-sm py-3 md:py-4 md:shadow-lg"
+          ? "bg-primary/90 md:backdrop-blur-sm py-3 md:py-4 md:shadow-lg"
           : "bg-transparent py-4"
       }`}
     >
       <div className="container-narrow flex items-center justify-between">
         <a
           href="#home"
-          className="text-2xl font-bold hover:text-accent transition-colors"
+          className="text-2xl font-bold transition-colors"
         >
           <span className="font-mono">DuyTK</span>
         </a>
@@ -125,9 +125,9 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
                 // className="bg-primary dark:bg-accent p-1.5 rounded-md"
               >
                 {darkMode === 'dark' ? (
-                  <IoSunnyOutline className="text-primary w-5 h-5" />
+                  <IoSunnyOutline className="text-secondary w-5 h-5" />
                 ) : (
-                  <IoMoonOutline className="text-primary w-5 h-5" />
+                  <IoMoonOutline className="text-secondary w-5 h-5" />
                 )}
               </button>
             </li>

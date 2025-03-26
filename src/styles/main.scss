@@ -8,21 +8,17 @@
 @import "tailwindcss/utilities";
 
 .dark {
-  --primary: 245, 245, 245;
-  --secondary: 200, 200, 200;
+  --primary: 23, 23, 23;
+  --secondary: 245, 245, 245;
   --accent: 220, 47, 2;
-  --light:  23, 23, 23;
-  --dark: 245, 245, 245;
   
   background: rgba(var(--light));
 }
 
 .light {
-  --primary: 23, 23, 23;
+  --primary: 255, 251, 251;
   --secondary: 38, 38, 38;
-  --accent: 72, 245, 66;
-  --light: 245, 245, 245;
-  --dark: 245, 245, 245;
+  --accent: 0, 119, 182;
 
   background: rgba(var(--dark));
 }
@@ -51,7 +47,7 @@
   }
 
   a {
-    @apply text-white text-green transition-colors duration-300;
+    @apply text-secondary transition-colors duration-300;
 
     &:hover {
       @apply text-accent;
@@ -94,7 +90,7 @@
   }
 
   .nav-link {
-    @apply relative text-primary hover:text-accent transition-colors duration-300 no-underline;
+    @apply relative text-secondary hover:text-accent transition-colors duration-300 no-underline;
 
     &.active {
       @apply text-accent;
