@@ -12,10 +12,10 @@ const HeroSection = () => {
       <div className="container-narrow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-slide-in-left">
-            <span className="inline-block dark:text-accent font-mono mb-4">
+            <span className="inline-block text-accent font-mono mb-4">
               Hello, I'm
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-secondary dark:text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-secondary">
               Duy Tran
             </h1>
             <div className="text-2xl md:text-3xl font-semibold mb-6 h-12">
@@ -26,7 +26,7 @@ const HeroSection = () => {
                 delayAfterType={2000}
               />
             </div>
-            <p className="dark:text-light/80 text-primary text-lg max-w-lg mb-8">
+            <p className="text-secondary text-lg max-w-lg mb-8">
               I craft pixel-perfect, accessible, and performant digital
               experiences with a focus on user-centered design and clean code.
             </p>

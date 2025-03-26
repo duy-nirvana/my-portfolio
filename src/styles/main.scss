@@ -8,11 +8,23 @@
 @import "tailwindcss/utilities";
 
 .dark {
+  --primary: 245, 245, 245;
+  --secondary: 200, 200, 200;
   --accent: 220, 47, 2;
+  --light:  23, 23, 23;
+  --dark: 245, 245, 245;
+  
+  background: rgba(var(--light));
 }
 
 .light {
+  --primary: 23, 23, 23;
+  --secondary: 38, 38, 38;
   --accent: 72, 245, 66;
+  --light: 245, 245, 245;
+  --dark: 245, 245, 245;
+
+  background: rgba(var(--dark));
 }
 
 // Custom base styles
@@ -23,7 +35,7 @@
 
   html,
   body {
-    @apply dark:bg-primary dark:text-light text-primary bg-blue-200;
+    @apply text-light text-primary;
     scroll-behavior: smooth;
     // font-feature-settings: "ss01", "ss02", "cv01", "cv03";
     -webkit-font-smoothing: antialiased;
@@ -31,7 +43,7 @@
   }
 
   ::selection {
-    @apply dark:bg-accent text-white bg-green;
+    @apply bg-accent text-white bg-green;
   }
 
   strong {
@@ -39,7 +51,7 @@
   }
 
   a {
-    @apply dark:text-white text-green transition-colors duration-300;
+    @apply text-white text-green transition-colors duration-300;
 
     &:hover {
       @apply text-accent;
@@ -82,7 +94,7 @@
   }
 
   .nav-link {
-    @apply relative text-light hover:text-accent transition-colors duration-300 no-underline;
+    @apply relative text-primary hover:text-accent transition-colors duration-300 no-underline;
 
     &.active {
       @apply text-accent;

@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#171717",
-        secondary: "#262626",
+        primary: "rgba(var(--primary))",
+        secondary: "rgba(var(--secondary))",
         accent: "rgba(var(--accent))",
         green: "#6A9C89",
-        light: "#f5f5f5",
+        light: "rgba(var(--light))",
+        dark: "rgba(var(--dark))",
       },
       fontFamily: {
         sans: ["Lexend", "sans-serif"],

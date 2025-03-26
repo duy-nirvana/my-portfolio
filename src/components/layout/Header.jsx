@@ -83,7 +83,7 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
       ${
         isScrolled
-          ? "bg-white/50 dark:bg-primary/90 md:backdrop-blur-sm py-3 md:py-4 md:shadow-lg md:text-white"
+          ? "bg-dark/90 md:backdrop-blur-sm py-3 md:py-4 md:shadow-lg"
           : "bg-transparent py-4"
       }`}
     >
@@ -104,9 +104,7 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
                   href={link.path}
                   onClick={() => handleNavigateSection(link.path)}
                   className={twMerge(
-                    activeSection === link.path
-                      ? "nav-link active"
-                      : "nav-link text-black"
+                    activeSection === link.path ? "nav-link active" : "nav-link"
                   )}
                 >
                   {link.name}
@@ -126,10 +124,10 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
                 onClick={onChangeDarkMode}
                 // className="bg-primary dark:bg-accent p-1.5 rounded-md"
               >
-                {darkMode ? (
-                  <IoSunnyOutline className="dark:text-white text-primary w-5 h-5" />
+                {darkMode === 'dark' ? (
+                  <IoSunnyOutline className="text-primary w-5 h-5" />
                 ) : (
-                  <IoMoonOutline className="dark:text-white text-primary w-5 h-5" />
+                  <IoMoonOutline className="text-primary w-5 h-5" />
                 )}
               </button>
             </li>
@@ -164,7 +162,7 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
 
         {/* Mobile Navigation */}
         <div
-          className={`fixed inset-0 bg-light dark:bg-primary flex flex-col items-center justify-center transition-all duration-300 ${
+          className={`fixed inset-0 bg-light bg-primary flex flex-col items-center justify-center transition-all duration-300 ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           } md:hidden`}
         >

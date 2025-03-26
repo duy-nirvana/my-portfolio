@@ -45,7 +45,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ darkMode }}>
       <div className={darkMode}>
-        <div className="min-h-screen flex flex-col dark:bg-primary dark:text-light text-black bg-slate-50 transition-colors duration-00">
+        <div className="min-h-screen flex flex-col dark:text-light text-black transition-colors duration-00">
           <Header darkMode={darkMode} onChangeDarkMode={handleChangeDarkMode} />
           {/* <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
           DRK MODE
