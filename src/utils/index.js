@@ -1,4 +1,4 @@
-export const getTechnologies = (darkMode = false) => {
+export const getTechnologies = (theme = "dark") => {
   return [
     { id: "html", name: "HTML5", path: "html-icon.svg" },
     { id: "css", name: "CSS3", path: "css-icon.svg" },
@@ -8,7 +8,7 @@ export const getTechnologies = (darkMode = false) => {
     {
       id: "next",
       name: "Next",
-      path: darkMode ? "nextjs-light-icon.svg" : "nextjs-dark-icon.svg",
+      path: theme === "dark" ? "nextjs-light-icon.svg" : "nextjs-dark-icon.svg",
     },
     {
       id: "react-hook-form",
@@ -29,7 +29,8 @@ export const getTechnologies = (darkMode = false) => {
     {
       id: "express",
       name: "Express",
-      path: darkMode ? "express-light-icon.svg" : "express-dark-icon.svg",
+      path:
+        theme === "dark" ? "express-light-icon.svg" : "express-dark-icon.svg",
     },
     { id: "mongodb", name: "MongoDB", path: "mongodb-icon.svg" },
     { id: "git", name: "Git", path: "git-icon.svg" },

@@ -14,12 +14,14 @@ const ContactSection = () => {
       icon: FiMail,
       title: "Email",
       value: "trankhanhduy8599@gmail.com",
+      href: 'trankhanhduy8599@gmail.com',
       isCopy: true,
     },
     {
       icon: FiPhone,
       title: "Phone",
       value: "(+84) 932 625 091",
+      href: '0932625091',
       isCopy: true,
     },
     {
@@ -39,34 +41,25 @@ const ContactSection = () => {
           align="center"
         />
 
-        <div className="flex justify-center">
-          <div className="animate-slide-in-left">
-            {/* <h3 className="text-2xl font-bold mb-6">
-              Let's build something amazing together
-            </h3>
-            <p className="text-light/80 mb-8">
-              I'm always interested in hearing about new projects and
-              opportunities. Whether you have a question or just want to say hi,
-              I'll try my best to get back to you!
-            </p> */}
-
+        <div className="flex justify-center w-full">
+          <div className="animate-slide-in-left w-full md:w-fit">
             <div className="flex justify-center flex-col gap-4">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
                     className={twMerge(
-                      "flex items-center gap-4 bg-black/20 py-2 px-4 lg:px-6 rounded-md relative transition-all",
+                      "flex items-center gap-4 bg-dark text-secondary py-2 px-4 lg:px-6 rounded-md relative transition-all",
                       item.isCopy && " cursor-pointer",
                       copiedIds[index] && "copied"
                     )}
                     key={index}
-                    onClick={() => item.isCopy && setCopy(index, item.value)}
+                    onClick={() => item.isCopy && setCopy(index, item.href)}
                   >
-                    <Icon className="w-7 h-7" />
+                    <Icon className="w-7 h-7 min-w-fit" />
                     <div className="flex flex-col gap-1">
                       <p>{item.title}</p>
-                      <p>{item.value}</p>
+                      <p className="break-words">{item.value}</p>
                     </div>
                   </div>
                 );

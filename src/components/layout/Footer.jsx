@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="dark:bg-secondary py-6 bg-slate-100">
+    <footer className="bg-dark py-6 ">
       <div className="container-narrow">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -38,14 +38,17 @@ const Footer = () => {
             >
               <span className="font-mono">DuyTK</span>
             </Link>
-            <p className="text-light/80 max-w-md">
-              Developer & designer crafting performant, accessible digital
-              experiences with a focus on creativity.
+            <p className="text-secondary/80 max-w-md">
+              Skilled in ensuring accessibility and creating seamless user
+              experiences. Always eager to learn new technologies and
+              collaborate on innovative projects.
             </p>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Navigation</h3>
+            <h3 className="text-lg text-secondary font-semibold mb-4">
+              Navigation
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -87,7 +90,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Social</h3>
+            <h3 className="text-lg font-semibold mb-4 text-secondary">
+              Social
+            </h3>
             <ul className="space-y-2">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
@@ -97,11 +102,11 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-light/80 hover:text-accent group transition-colors flex items-center gap-2"
+                      className="text-secondary hover:text-accent group transition-colors flex items-center gap-2"
                     >
                       <Icon className="w-5 h-5" />
                       {link.name}
-                      <HiOutlineExternalLink className="w-5 h-5 text-white/40 group-hover:text-white/70 transition-colors" />
+                      <HiOutlineExternalLink className="w-5 h-5 text-secondary/40 group-hover:text-secondary/70 transition-colors" />
                     </a>
                   </li>
                 );
@@ -110,7 +115,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-center text-light pt-5">
+        <div className="flex justify-center text-light pt-5 text-secondary">
           <p>
             Made by <span className="text-xl">✌️</span> and{" "}
             <span className="text-xl">💻</span>

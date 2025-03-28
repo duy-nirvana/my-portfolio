@@ -18,7 +18,7 @@ const navLinks = [
   { name: "Contact", path: "#contact" },
 ];
 
-const Header = ({ darkMode, onChangeDarkMode }) => {
+const Header = ({ theme, onChangeTheme }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -80,7 +80,7 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      className={`fixed top-0 left-0 w-full z-50
       ${
         isScrolled
           ? "bg-primary/90 md:backdrop-blur-sm py-3 md:py-4 md:shadow-lg"
@@ -88,10 +88,7 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
       }`}
     >
       <div className="container-narrow flex items-center justify-between">
-        <a
-          href="#home"
-          className="text-2xl font-bold transition-colors"
-        >
+        <a href="#home" className="text-2xl font-bold transition-colors">
           <span className="font-mono">DuyTK</span>
         </a>
 
@@ -121,13 +118,13 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
             ))}
             <li className="flex items-center">
               <button
-                onClick={onChangeDarkMode}
+                onClick={onChangeTheme}
                 // className="bg-primary dark:bg-accent p-1.5 rounded-md"
               >
-                {darkMode === 'dark' ? (
-                  <IoSunnyOutline className="text-secondary w-5 h-5" />
+                {theme === "dark" ? (
+                  <IoSunnyOutline className="text-secondary w-8 h-8 hover:bg-secondary/20 p-1.5 rounded-md transition-colors" />
                 ) : (
-                  <IoMoonOutline className="text-secondary w-5 h-5" />
+                  <IoMoonOutline className="text-secondary w-8 h-8 hover:bg-white/80 p-1.5 rounded-md transition-colors" />
                 )}
               </button>
             </li>
@@ -135,14 +132,13 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
         </nav>
 
         {/* Mobile Menu Button */}
-
         <div className="md:hidden z-50 flex items-center gap-3">
           <button
-            onClick={onChangeDarkMode}
-            className={"p-2 bg-accent dark:bg-slate-500 text-white rounded-md"}
+            onClick={onChangeTheme}
+            className={"p-2 bg-accent text-white rounded-md"}
           >
-            {darkMode ? (
-              <IoSunnyOutline className="text-white w-5 h-5" />
+            {theme === 'dark' ? (
+              <IoSunnyOutline className="text-white w-5 h-5 " />
             ) : (
               <IoMoonOutline className="text-white w-5 h-5" />
             )}
@@ -153,16 +149,16 @@ const Header = ({ darkMode, onChangeDarkMode }) => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <IoClose className="dark:text-white text-primary w-8 h-8" />
+              <IoClose className="text-secondary w-8 h-8" />
             ) : (
-              <HiOutlineMenu className="dark:text-white text-primary w-8 h-8" />
+              <HiOutlineMenu className="text-secondary w-8 h-8" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div
-          className={`fixed inset-0 bg-light bg-primary flex flex-col items-center justify-center transition-all duration-300 ${
+          className={`fixed inset-0 bg-light bg-primary flex flex-col items-center justify-center ${
             isOpen ? "opacity-100 visible" : "opacity-0 invisible"
           } md:hidden`}
         >

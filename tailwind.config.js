@@ -7,11 +7,10 @@ export default {
         primary: "rgba(var(--primary))",
         secondary: "rgba(var(--secondary))",
         accent: "rgba(var(--accent))",
-        green: "#6A9C89",
+        dark: "rgba(var(--dark))",
       },
       fontFamily: {
         sans: ["Lexend", "sans-serif"],
-        // mono: ["Source Code Pro", "monospace"],
         mono: ["Source Code Pro", "monospace"],
       },
       screens: {

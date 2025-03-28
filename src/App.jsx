@@ -1,19 +1,30 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import ScrollToHashElement from "./components/common/ScrollToHashElement";
-import { twMerge } from "tailwind-merge";
-// import About from './pages/About';
-// import Projects from './pages/Projects';
-// import Contact from './pages/Contact';
-// import NotFound from './pages/NotFound';
+
+const themes = ["dark", "light"];
 
 export const ThemeContext = createContext();
 
 function App() {
-  const [darkMode, setDarkMode] = useState("dark");
+  const localTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(
+    themes.includes(localTheme) ? localTheme : "dark"
+  );
+
+  useEffect(() => {
+    if (!localTheme) {
+      localStorage.setItem("theme", theme);
+    }
+  }, []);
 
   useEffect(() => {
     // Smooth scrolling for anchor links
@@ -38,26 +49,21 @@ function App() {
     return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
 
-  const handleChangeDarkMode = () => {
-    setDarkMode(darkMode === "dark" ? "light" : "dark");
+  const handleChangeTheme = () => {
+    const themeMode = theme === "dark" ? "light" : "dark";
+    setTheme(themeMode);
+    localStorage.setItem("theme", themeMode);
   };
 
   return (
-    <ThemeContext.Provider value={{ darkMode }}>
-      <div className={darkMode}>
-        <div className="min-h-screen flex flex-col dark:text-light text-black transition-colors bg-primary">
-          <Header darkMode={darkMode} onChangeDarkMode={handleChangeDarkMode} />
-          {/* <button className="mt-20" onClick={() => setDarkMode(!darkMode)}>
-          DRK MODE
-        </button> */}
+    <ThemeContext.Provider value={{ theme }}>
+      <div className={theme}>
+        <div className="min-h-screen flex flex-col dark:text-light text-black transition-colors">
+          <Header theme={theme} onChangeTheme={handleChangeTheme} />
           <main className="flex-grow">
             <ScrollToHashElement />
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </main>
           <Footer />

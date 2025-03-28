@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import SectionHeading from "../common/SectionHeading";
-import ProjectCard from "../common/ProjectCard";
-import Button from "../common/Button";
-import { getTechnologies } from "../../utils";
 import { ThemeContext } from "../../App";
+import { getTechnologies } from "../../utils";
+import ProjectCard from "../common/ProjectCard";
+import SectionHeading from "../common/SectionHeading";
 
 const ProjectsSection = () => {
-  const { darkMode } = useContext(ThemeContext);
-  const technologies = getTechnologies(darkMode);
+  const { theme } = useContext(ThemeContext);
+  const technologies = getTechnologies(theme);
 
   const featuredProjects = [
     {
@@ -36,10 +34,29 @@ const ProjectsSection = () => {
         "quiz-it-5.png",
         "quiz-it-6.png",
       ],
-      source_url: "#",
-      live_url: "#",
+      source_url: "https://github.com/duy-nirvana/quiz-it",
+      live_url: "https://quiz-it-beta.vercel.app/",
     },
-    
+    {
+      id: "quiz-it",
+      title: "QUIZ IT",
+      team_size: 1,
+      date: "2024",
+      description:
+        "Quiz It is a game-based learning platform that lets users create, share, play quizzes, making education and fun.",
+      tags: [
+        "socket-io",
+        "react",
+        "react-hook-form",
+        "redux",
+        "node",
+        "express",
+        "mongodb",
+      ],
+      image: null,
+      source_url: "https://github.com/duy-nirvana/quiz-it",
+      live_url: "https://quiz-it-beta.vercel.app/",
+    },
   ];
 
   return (

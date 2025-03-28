@@ -11,35 +11,38 @@
   --primary: 23, 23, 23;
   --secondary: 245, 245, 245;
   --accent: 220, 47, 2;
-  
-  background: rgba(var(--light));
+  --dark: 0, 0, 0;
+
+  background-color: rgba(var(--primary));
+  background-image: url('/dark-texture.svg');
 }
 
 .light {
-  --primary: 255, 251, 251;
+  --primary: 255, 249, 236;
   --secondary: 38, 38, 38;
   --accent: 0, 119, 182;
+  --dark: 255, 236, 194;
 
-  background: rgba(var(--dark));
+  background-color: rgba(var(--primary));
+  background-image: url('/light-texture.svg');
 }
 
-// Custom base styles
 @layer base {
   // * {
-  //   @apply transition-colors duration-200;
+  //   @apply transition-colors duration-100;
   // }
 
   html,
   body {
-    @apply text-light text-primary;
+    @apply text-primary;
+    box-sizing: border-box;
     scroll-behavior: smooth;
-    // font-feature-settings: "ss01", "ss02", "cv01", "cv03";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    @apply bg-accent text-white bg-green;
+    @apply bg-accent/50 text-white;
   }
 
   strong {
@@ -47,7 +50,7 @@
   }
 
   a {
-    @apply text-secondary transition-colors duration-300;
+    @apply text-secondary;
 
     &:hover {
       @apply text-accent;
@@ -55,14 +58,13 @@
   }
 }
 
-// Custom components
 @layer components {
   .container-narrow {
     @apply container max-w-5xl mx-auto px-4 md:px-8;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium;
   }
 
   .btn-primary {
@@ -82,7 +84,7 @@
   }
 
   .card {
-    @apply bg-secondary rounded-xl p-6 transition-all duration-300;
+    @apply bg-secondary rounded-xl p-6;
 
     &:hover {
       @apply shadow-lg shadow-accent/10;
@@ -90,7 +92,7 @@
   }
 
   .nav-link {
-    @apply relative text-secondary hover:text-accent transition-colors duration-300 no-underline;
+    @apply relative text-secondary hover:text-accent no-underline;
 
     &.active {
       @apply text-accent;
@@ -102,7 +104,7 @@
 
     &::after {
       content: "";
-      @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent opacity-0 transition-opacity duration-300;
+      @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent opacity-0 transition-opacity;
     }
 
     &:hover::after {
@@ -116,7 +118,6 @@
   }
 }
 
-// Custom utilities
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-accent;
@@ -129,6 +130,6 @@
   }
 
   .copied {
-    @apply after:absolute after:w-fit after:h-fit after:bg-accent after:right-0 after:top-0 after:-translate-y-1/2 after:content-['Copied!'] after:text-xs after:p-1 after:rounded-md;
+    @apply after:text-white after:absolute after:w-fit after:h-fit after:bg-accent after:right-0 after:top-0 after:-translate-y-1/2 after:content-['Copied!'] after:text-xs after:p-1 after:rounded-md;
   }
 }
