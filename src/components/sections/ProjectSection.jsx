@@ -15,7 +15,7 @@ const ProjectsSection = () => {
       <div className="container-narrow">
         <SectionHeading
           title="Featured Projects"
-          subtitle="A selection of my recent work and passion projects"
+          subtitle="A selection of my recent work and projects"
           align="center"
         />
 

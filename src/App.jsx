@@ -58,7 +58,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme }}>
       <div className={theme}>
-        <div className="min-h-screen flex flex-col dark:text-light text-black transition-colors">
+        <div className="min-h-screen flex flex-col text-black">
           <Header theme={theme} onChangeTheme={handleChangeTheme} />
           <main className="flex-grow">
             <ScrollToHashElement />

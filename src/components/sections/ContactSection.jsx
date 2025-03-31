@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SectionHeading from "../common/SectionHeading";
-import Button from "../common/Button";
 import { FiMail, FiPhone } from "react-icons/fi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
@@ -37,7 +36,7 @@ const ContactSection = () => {
       <div className="container-narrow">
         <SectionHeading
           title="Get In Touch"
-          subtitle="Have a project in mind? Let's talk about it"
+          subtitle="Contact me using the information below"
           align="center"
         />
 
@@ -49,7 +48,7 @@ const ContactSection = () => {
                 return (
                   <div
                     className={twMerge(
-                      "flex items-center gap-4 bg-dark text-secondary py-2 px-4 lg:px-6 rounded-md relative transition-all",
+                      "flex items-center gap-4 bg-dark text-secondary py-2 px-4 lg:px-6 rounded-md relative",
                       item.isCopy && " cursor-pointer",
                       copiedIds[index] && "copied"
                     )}

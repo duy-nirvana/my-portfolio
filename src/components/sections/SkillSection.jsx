@@ -13,7 +13,7 @@ function SkillSection(props) {
       <div className="container-narrow">
         <SectionHeading
           title="My skills"
-          subtitle="Technologies that I have used and am using now"
+          subtitle="Technologies I have used and am currently using"
           align="center"
         />
 
