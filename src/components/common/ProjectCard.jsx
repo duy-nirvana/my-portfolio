@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { twMerge } from "tailwind-merge";
 
 const ProjectCard = ({ project, technologies }) => {
   const {
@@ -25,7 +26,7 @@ const ProjectCard = ({ project, technologies }) => {
 
   return (
     <article className="group bg-dark rounded-xl overflow-hidden transition-all duration-300 ">
-      <div className="block ">
+      <div className="flex flex-col h-full">
         <div className="relative h-40 md:h-fit overflow-hidden">
           {Array.isArray(image) ? (
             <Swiper
@@ -78,44 +79,66 @@ const ProjectCard = ({ project, technologies }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60"></div>
         </div>
 
-        <div className="p-4">
-          <Swiper spaceBetween={4} slidesPerView={"auto"} grabCursor={true}>
-            {tags
-              .map((tag) => technologies.find((tech) => tech.id === tag))
-              .map((tech) => (
-                <SwiperSlide
-                  className="flex items-center gap-1 bg-primary p-1 rounded-md flex-shrink-0 !w-fit px-1.5"
-                  key={tech.id}
-                >
-                  <div className="max-w-fit flex items-center gap-1">
-                    <img
-                      src={`/icons/${tech.path}`}
-                      className="w-3 h-3 min-w-3"
-                    />
-                    <p className="text-xs text-secondary/90">{tech.name}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-          </Swiper>
+        <div className="p-4 flex flex-col flex-grow justify-between">
+          <div>
+            {tags?.length && (
+              <Swiper
+                spaceBetween={4}
+                slidesPerView={"auto"}
+                grabCursor={true}
+                className="mb-2"
+              >
+                {tags
+                  .map((tag) => technologies.find((tech) => tech.id === tag))
+                  .map((tech) => (
+                    <SwiperSlide
+                      className="flex items-center gap-1 bg-primary p-1 rounded-md flex-shrink-0 !w-fit px-1.5"
+                      key={tech.id}
+                    >
+                      <div className="max-w-fit flex items-center gap-1">
+                        <img
+                          src={`/icons/${tech.path}`}
+                          className="w-3 h-3 min-w-3"
+                        />
+                        <p className="text-xs text-secondary/90">{tech.name}</p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+            )}
 
-          <h3 className="text-xl font-bold my-2 text-secondary transition-colors">
-            {title}
-          </h3>
-          <p className="text-secondary/80 text-sm mb-1">{description}</p>
-          <div className="my-2 w-full bg-light/20 h-[0.5px]"></div>
-
-          <div className="relative flex justify-between items-center mb-2">
-            <p className="text-secondary text-sm">Team size: {team_size}</p>
-            <p className="text-secondary text-sm">{date}</p>
+            <h3 className="text-xl font-bold text-secondary transition-colors mb-2">
+              {title}
+            </h3>
+            <p className="text-secondary/80 text-sm">{description}</p>
           </div>
+          <div>
+            <div className="w-full bg-secondary/20 h-[0.5px] my-2"></div>
 
-          <div className="flex justify-end gap-3">
-            <Link to={source_url} target="_blank">
-              <FaGithub className="w-5 h-5 text-secondary hover:text-accent" />
-            </Link>
-            <Link to={live_url} target="_blank">
-              <HiOutlineExternalLink className="w-5 h-5 text-secondary hover:text-accent" />
-            </Link>
+            <div className="flex flex-col gap-1">
+              <div className="relative flex justify-between items-center">
+                <p className="text-secondary text-sm">Team size: {team_size}</p>
+                <p className="text-secondary text-sm">{date}</p>
+              </div>
+
+              <div
+                className={twMerge(
+                  "flex justify-end gap-2",
+                  !source_url && !live_url && "hidden"
+                )}
+              >
+                {source_url && (
+                  <Link to={source_url} target="_blank">
+                    <FaGithub className="w-5 h-5 text-secondary hover:text-accent" />
+                  </Link>
+                )}
+                {live_url && (
+                  <Link to={live_url} target="_blank">
+                    <HiOutlineExternalLink className="w-5 h-5 text-secondary hover:text-accent" />
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

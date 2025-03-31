@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "id": "quiz-it",
+      "title": "QUIZ IT",
+      "team_size": 1,
+      "date": "2024",
+      "description": "Quiz IT is a game-based learning platform that lets users create, share, play quizzes, making education and fun.",
+      "tags": [
+        "socket-io",
+        "react",
+        "react-hook-form",
+        "redux",
+        "node",
+        "express",
+        "mongodb"
+      ],
+      "image": [
+        "quiz-it-thumbnail.png",
+        "quiz-it-1.png",
+        "quiz-it-2.png",
+        "quiz-it-3.png",
+        "quiz-it-4.png",
+        "quiz-it-5.png",
+        "quiz-it-6.png"
+      ],
+      "source_url": "https://github.com/duy-nirvana/quiz-it",
+      "live_url": "https://quiz-it-beta.vercel.app/"
+    },
+    {
+      "id": "crm-bbc-incorp",
+      "title": "BBCIncorp CRM",
+      "team_size": 9,
+      "date": "2024",
+      "description": "BBCIncorp CRM is designed to manage customer company formations across 19 countries, utilizing React Flow Renderer to structure and visualize company systems efficiently.",
+      "tags": null,
+      "image": null,
+      "source_url": null,
+      "live_url": null
+    },
+    {
+      "id": "dashboard-bbc-incorp",
+      "title": "BBCIncorp Dashboard",
+      "team_size": 9,
+      "date": "2023",
+      "description": "Simple, frictionless and easy-to-use platform to help you start your company in minutes.",
+      "tags": null,
+      "image": null,
+      "source_url": null,
+      "live_url": null
+    },
+    {
+      "id": "whatsapp",
+      "title": "Whatsapp cloned",
+      "team_size": 5,
+      "date": "2024",
+      "description": "Integrating WhatsApp into the CRM enables customer service teams to chat with users seamlessly, ensuring messages are permanently stored and not deleted over time, unlike WhatsApp Web.",
+      "tags": null,
+      "image": null,
+      "source_url": null,
+      "live_url": null
+    }
+  ]
+}
