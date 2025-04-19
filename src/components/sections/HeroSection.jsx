@@ -31,7 +31,7 @@ const HeroSection = () => {
               dynamic, responsive, and user-friendly web applications
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button to="/cv.pdf" variant="primary" target="_blank">
+              <Button to="/Tran Khanh Duy_Resume_Frontend Developer.pdf" variant="primary" target="_blank">
                 <div className="flex gap-2 items-center">
                   <p>My CV</p>
                   <HiOutlineExternalLink className="w-5 h-5" />
